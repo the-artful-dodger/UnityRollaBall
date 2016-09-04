@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour {
 	private int count;
 	public Text countText;
 	public Text winText;
+	public Text scorer; 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
 		count = 0;
 		SetCountText ();
 		winText.text = "";
+		scorer.text = "";
 	}
 
 	void FixedUpdate()
@@ -37,7 +39,11 @@ public class PlayerController : MonoBehaviour {
 	void SetCountText()
 	{
 		countText.text = "Count: " + count.ToString ();
-		if (count >= 11)
+		if (count >= 11) {
 			winText.text = "You Win!!";
+			float scoreValue = (1 / Time.realtimeSinceStartup) * 100000000;
+			scorer.text = (scoreValue.ToString());
+			//Application.Quit ();
+		}
 	}
 }
