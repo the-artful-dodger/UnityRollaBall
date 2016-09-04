@@ -43,7 +43,8 @@ public class PlayerController : MonoBehaviour {
 			winText.text = "You Win!!";
 			float scoreValue = (1 / Time.realtimeSinceStartup) * 100000000;
 			scorer.text = (scoreValue.ToString());
-			//Application.Quit ();
+			if(Input.GetKey("escape"))
+				Application.Quit();
 		}
 	}
 }
